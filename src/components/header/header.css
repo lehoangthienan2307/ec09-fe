@@ -1,0 +1,52 @@
+div.container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+div.row {
+    margin-right: 0px;
+    margin-left: 0px
+}
+
+.header__top__right__auth > a,
+.header__top__right__social > a {
+  color: #18aeac;
+}
+
+.header__top__right_lang {
+  display: flex;
+  flex-direction: row nowrap;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.header__top__right_lang > span {
+  margin-right: 0.5em;
+}
+
+.header__top__right__auth > a:hover,
+.header__top__right__social > a:hover {
+  color: #ff8303;
+}
+
+.container {
+  align-items: center;
+}
+
+
+.cart-icon{
+  position: relative;
+  margin-right: 20px;
+}
+.cart-icon span{
+  background: crimson;
+  border-radius: 20px;
+  color: white;
+  position: absolute;
+  top:-10px;
+  right: -10px;
+  padding: 5px 7px;
+  font-size: 10px;
+}
+

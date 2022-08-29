@@ -1,0 +1,15 @@
+.sorting {
+  display: flex;
+  margin-left: 30%;
+
+}
+.sorting select{
+  margin-left: 5px;
+  border: 2px solid rgb(0, 172, 126);
+  color: rgb(0, 172, 172);
+}
+.sorting h4{
+  color: rgb(0, 172, 126);
+  letter-spacing: 0.06rem;
+  cursor: pointer;
+}
