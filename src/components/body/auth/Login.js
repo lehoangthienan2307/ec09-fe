@@ -59,6 +59,10 @@ function Login() {
         setUser({...user, error:'', success: res.data.msg})
         localStorage.setItem('firstLogin', true)
         document.getElementById("signInDiv").hidden=true;
+
+        const data = res.data.access_token;
+            localStorage.setItem('token',  data)
+        window.location.href = "/homepage";
         }
         catch(err) {
             err.response.data.msg && 

@@ -30,7 +30,7 @@ const Header = () => {
     return (
 		<Navbar expand='lg' bg='primary' variant='dark' className='shadow' >
 			<Navbar.Brand className='font-weight-bolder text-white'>
-				  Huimitu
+				  Huimitu 
 			</Navbar.Brand>
 
 			<Navbar.Toggle aria-controls='basic-navbar-nav' />
@@ -55,7 +55,7 @@ const Header = () => {
 				
 				<Nav>
 				{isLogged && (
-                     	 <Link to="/cart">
+                     	 <Link to="/account/cart">
                           <Button
 							 variant='primary '
 							 className='font-weight-bolder text-white mr-2 '>
@@ -83,13 +83,9 @@ const Header = () => {
 						<i class="fa fa-heart mr-2" aria-hidden="true"></i>
 						 Sản phẩm yêu thích
 						 </Dropdown.Item>
-						<Dropdown.Item href="#/action-2">
-						<i class="fa fa-history mr-2" aria-hidden="true"></i>
-						 Lịch sử đặt hàng
-						 </Dropdown.Item>
-						<Dropdown.Item href="#/action-3">
+						<Dropdown.Item href="/account/info">
 						<i class="fa fa-pencil-square-o mr-2" aria-hidden="true"></i>
-						 Chỉnh sửa thông tin
+						 Quản lý tài khoản
 						 </Dropdown.Item>
 					 </DropdownButton>
 					
@@ -115,7 +111,8 @@ const Header = () => {
 						
 						
 					):(
-						<Button
+						<Link to="/login" >
+<Button
 						variant='warning '
 						className='font-weight-bolder mr-2'>
 						<img
@@ -128,15 +125,14 @@ const Header = () => {
 						Sign In
 					</Button>
 
+						</Link>
+						
 					)}
-                   
 
-					
 				</Nav>
 			</Navbar.Collapse>
 		</Navbar>
 
-		
 	)
 }
 

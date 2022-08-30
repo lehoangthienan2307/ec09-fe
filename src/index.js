@@ -11,7 +11,6 @@ axios.defaults.baseURL = 'https://ec09-huimitu-be.herokuapp.com/'
 
 
 
-
 ReactDOM.render(
     <React.StrictMode>
 

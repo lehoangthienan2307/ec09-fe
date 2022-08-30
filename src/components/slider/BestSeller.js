@@ -6,9 +6,16 @@ import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import { data, multiData } from "./data";
 import { ArrowBackIos, ArrowForwardIos } from "@material-ui/icons";
 import { Rating } from "@material-ui/lab";
+import react, {useContext} from 'react'
+import {State} from '../../State';
+
+
+
+
 
 const PreviousBtn = (props) => {
-  console.log(props);
+  
+
   const { className, onClick } = props;
   return (
     <div className={className} onClick={onClick}>
@@ -50,6 +57,8 @@ const BestSeller = () => {
 };
 
 const Card = ({ item }) => {
+  const state=useContext(State)
+  const [isLogged]= state.userContext.isLogged
   return (
     <div
       style={{
@@ -66,7 +75,7 @@ const Card = ({ item }) => {
       </span>
       <img
         className="multi__image"
-        src={item}
+        src="https://image.hsv-tech.io/400x0/reebok/products/4f2108fc-1694-47fb-8ff7-616ef7ca3e59.webp"
         alt=""
         style={{
           width: "100%",
@@ -83,7 +92,7 @@ const Card = ({ item }) => {
           fontWeight: 400,
         }}
       >
-        Top Trending Tvs
+        THOM BROWNE Tech Runner Sneakers
       </p>
       <Rating precision={0.5} size="small" />
       <p>
@@ -95,11 +104,12 @@ const Card = ({ item }) => {
             fontWeight: 300,
           }}
         >
-          $7170
+          1,000,000 VND
         </span>
-        <span style={{ color: "gray", fontWeight: 700 }}>$7071</span>
+        <span style={{ color: "gray", fontWeight: 700 }}>700,000 VND</span>
       </p>
-      <button>Add to cart</button>
+      {isLogged&&  (<button>Add to cart</button>)}
+     
     </div>
   );
 };

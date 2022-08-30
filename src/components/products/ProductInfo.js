@@ -5,6 +5,9 @@ import {State} from '../../State'
 import { useEffect, useState, useContext } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import cartAPI from '../../api/CartAPI'
+import Comment from '../comment/Comment'
+
+import swal from "sweetalert2";
 
 const ProductInfo = ({ product }) => {
 
@@ -12,6 +15,30 @@ const ProductInfo = ({ product }) => {
   const token= localStorage.getItem('token')
   const navigate = useNavigate();
   const catchUserCart=state.userContext.catchUserCart;
+  
+  const [reviews, setReviews] = useState([]);
+  const { id } = useParams();
+  
+  const fetchReviews = async () => {
+    try {
+   
+      const response = await axios.get('/review', {
+        headers: {Authorization: token}
+      })
+      const { reviews } = response.data;
+   
+        setReviews(reviews);
+
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  useEffect(() => {
+
+    fetchReviews();
+
+  }, []);
 
   const addToCartSubmit = async (ProID) => {
 
@@ -34,14 +61,38 @@ const ProductInfo = ({ product }) => {
     }
   };
 
+  const handleReview = async ({ ProID, rating, comment }) => {
+    try {
+      const body={
+        ProID: ProID,
+        rating: rating,
+        comment:comment
+      }
+   await axios.post('/review', body,{
+        headers: {Authorization: token}
+      })
+  
+ 
+        swal.fire({
+          title: "Rating",
+          text: "Đánh giá sản phẩm thành công",
+          icon: "success",
+          confirmButtonText: "OK",
+        })
+      
+      
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   return <section className='product_info'>
     {
       product &&  
       <>
         <img src={product.image} alt={product.image} />
         <div className='box'>
-        <input type="text" id="ProID" value={product.ProID} />
-        <input type="number" id="quantity" value={product.ProID} />
+        <input type="hidden" id="ProID" value={product.ProID} />
         
           <h2>{product.ProName}</h2>
           <h3>{format.format_number(product.Price)} VND</h3>
@@ -57,7 +108,9 @@ const ProductInfo = ({ product }) => {
       </>
     }
 
-  </section>;
+  </section>
+
+
 };
 
 export default ProductInfo;

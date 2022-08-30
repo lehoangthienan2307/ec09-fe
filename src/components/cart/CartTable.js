@@ -7,6 +7,7 @@ import {State} from '../../State'
 import { Link } from "react-router-dom";
 import swal from "sweetalert2";
 import DeleteForeverOutlinedIcon from "@material-ui/icons/DeleteForeverOutlined";
+import PaypalButton from "./PaypalButton";
 import axios from 'axios'
 
 
@@ -24,11 +25,12 @@ const swalDeleteProps = {
 
 const CartPage = () => {
     const state=useContext(State)
-    const [cart] = state.userContext.cart
+    const [cart, setCart] = state.userContext.cart
     const catchUserCart=state.userContext.catchUserCart
     const navigate = useNavigate();
     const token = localStorage.getItem('token')
-    const [total, setTotal] = useState(0)
+    const totalPrice=cart.total
+    const [loading, setLoading] = useState(false);
 
     const handleDelete = async (ProID) => {
       try {
@@ -36,6 +38,7 @@ const CartPage = () => {
         if (result.isDismissed) {
           return;
         }
+        
         const body={
           ProID:ProID,
           quantity:0
@@ -73,10 +76,13 @@ const CartPage = () => {
     }
   };
 
- 
 
+
+
+
+ 
   return (
-    <div style={{maxWidth:'195vh'}}>
+    <div style={{maxWidth:'150vh', marginRight:'100px'}}>
 
   <div style={{textAlign:'center', marginTop:'50px', marginBottom:'30px'}}>
     <h3> GIỎ HÀNG</h3>
@@ -87,7 +93,7 @@ const CartPage = () => {
       style={{
       minHeight: "30vh",
        display: 'flex',
-       marginLeft:'10%', 
+       marginLeft:'2%', 
        marginBottom:'20px'
       }}
     >
@@ -133,14 +139,14 @@ const CartPage = () => {
               }>
             -
             </Button>
-              &nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp;
            
        
             <h5 style={{display:'inline', width: '70%'}}>{item.quantity}</h5>
-              &nbsp; &nbsp;&nbsp;
+              &nbsp; &nbsp;
       
       
-           <Button variant="info "  onClick={() =>
+           <Button variant="info " style={{display:'inline', width: '18%'}} onClick={() =>
                 handleUpdateQuantity(item.ProID, item.quantity + 1)
               }>
             +
@@ -189,15 +195,17 @@ const CartPage = () => {
         </div>
     </div>
     <div style={{textAlign:'right'}}>
-    <Button
-          variant="success btn-lg"
-          onClick={() => {
+
+
+    <div className="mt-4">
+    <Button variant="success" size="lg" onClick={() => {
             navigate("/checkout");
-          }}
-        >
-          <i class="fa fa-check-circle" aria-hidden="true"></i>&nbsp;
-          Mua hàng
+          }}>
+    
+      Mua hàng
         </Button>
+        </div>
+  
 
     </div>
     

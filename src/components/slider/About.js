@@ -31,9 +31,9 @@ const About = () => {
       <div style={{ width: "50%", textAlign: "center" }}>
         <h1 style={{ marginBottom: 20 }}>ABOUT</h1>
         <Slider prevArrow={<PreviousBtn />} nextArrow={<NextBtn />} dots>
-          <Card img="https://www.tutorialrepublic.com/examples/images/clients/1.jpg" />
-          <Card img="https://www.tutorialrepublic.com/examples/images/clients/2.jpg" />
-          <Card img="https://www.tutorialrepublic.com/examples/images/clients/3.jpg" />
+          <Card img="https://img.freepik.com/free-vector/super-sale-horizontal-banner_52683-59532.jpg?w=2000" />
+          <Card img="https://img.freepik.com/free-vector/modern-sale-banner-with-text-space-area_1017-27331.jpg?w=2000" />
+          <Card img="https://img.freepik.com/free-vector/modern-style-big-sale-banner-template_1017-23977.jpg?w=2000" />
         </Slider>
       </div>
     </div>
@@ -63,11 +63,11 @@ const Card = ({ img }) => {
         }}
       />
       <p>
-        abcdefu
+        Nhóm 9
       </p>
       <p style={{ fontStyle: "italic", marginTop: 25 }}>
         <span style={{ fontWeight: 500, color: "green" }}>HUIMITU CEO</span> ,
-        abcdefu
+        Nhóm 9
       </p>
     </div>
   );

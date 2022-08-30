@@ -26,12 +26,11 @@ const NextBtn = (props) => {
 const Carousel = () => {
   return (
 
-    <div className="carousel" style={{ display: "flex", justifyContent: "center"}} >
-      <div style={{ width: "100%"}}>
+    <div className="carousel" style={{ display: "flex", justifyContent: "center", marginTop:'20px'}} >
+      <div style={{ width: "80%"}}>
       <Slider
         autoplay
         autoplaySpeed={2000}
-        // dots
         initialSlide={2}
         infinite
         prevArrow={<PreviousBtn />}

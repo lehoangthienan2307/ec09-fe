@@ -14,22 +14,43 @@ function UserContext(token) {
                     const res = await axios.get('/auth/infor', {
                         headers: {Authorization: token}
                     })
-                    const { user } = res.data;
+                    const {account}  = res.data;
+                    console.log(account);
+                    setAccount(account);
                     setIsLogged(true)
-                    setAccount(user)
+   
+                    
 
                 } catch (err) {
-                    alert(err.res.data.msg)
+                    console.log(err)
                 }
             }
 
-           
+          catchAccount()
             getUser()  
             catchUserCart()
+  
         }
 
     },[token])
 
+    const catchAccount = async () => {
+        if (!token) return;
+    
+        try {
+            const res = await axios.get('/auth/infor', {
+                headers: {Authorization: token}
+            })
+          const { account } = res.data;
+
+         
+            setAccount(account);
+           
+        } catch (err) {
+          console.error(err);
+        }
+      };
+  
     const catchUserCart = async () => {
         const res= await axios.get('/cart',{
             headers: {Authorization: token}
@@ -56,6 +77,7 @@ function UserContext(token) {
         isLogged: [isLogged, setIsLogged],
         account:[account, setAccount],
         cart: [cart, setCart],
+        catchAccount: catchAccount,
         logout: logout,
         catchUserCart:catchUserCart
  

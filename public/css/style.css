@@ -646,16 +646,16 @@ ol {
 }
 
 .hero__categories__all {
-  background: #18aeac;
+  background: #e4a0d1;
   position: relative;
-  padding: 10px 25px 10px 24px;
+  padding: 10px 10px 10px 24px;
   cursor: pointer;
 }
 
 .hero__categories__all i {
   font-size: 16px;
   color: #ffffff;
-  margin-right: 10px;
+  margin-right: 2px;
 }
 
 .hero__categories__all span {
@@ -666,9 +666,8 @@ ol {
 
 .hero__categories__all:after {
   position: absolute;
-  right: 18px;
+  right: 5px;
   top: 9px;
-  /* font-family: "Cairo", sans-serif; */
   font-size: 18px;
   color: #ffffff;
 }
