@@ -14,8 +14,8 @@ import {State} from '../../State'
 
 
 const Body = () => {
-  const state=useContext(State)
-const [isLogged]= state.userContext.isLogged
+const state=useContext(State)
+const token= localStorage.getItem('token')
   return (
     <section>
 
@@ -26,22 +26,22 @@ const [isLogged]= state.userContext.isLogged
              <Route path="/auth/activate/:activation_token" element={<ActivationEmail/>} ></Route>
              <Route path="/" element={<HomePage/>}></Route>
              <Route path="/products" element={
-              <ProtectedRoute auth={isLogged} redirectTo="/login">
+              <ProtectedRoute auth={token} redirectTo="/login">
                    <Product/>
               </ProtectedRoute>
              }></Route>
              <Route exact path="/products/:id" element={
-               <ProtectedRoute auth={isLogged} redirectTo="/login">
+               <ProtectedRoute auth={token} redirectTo="/login">
                    <ProductDetail />
                </ProtectedRoute>
              }></Route>
              <Route path="/account/*" element={
-              <ProtectedRoute auth={isLogged} redirectTo="/login">
+              <ProtectedRoute auth={token} redirectTo="/login">
                 <Account/>
               </ProtectedRoute>
              }></Route>
              <Route path="/checkout" element={
-             <ProtectedRoute auth={isLogged} redirectTo="/login">
+             <ProtectedRoute auth={token} redirectTo="/login">
               <Checkout/>
              </ProtectedRoute>
              }></Route>

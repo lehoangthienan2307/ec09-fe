@@ -142,18 +142,7 @@ function Login() {
                       
                          <div id="signInDiv"></div>
 
-                        <Link to='#'>
-			         		<Button variant='outline-dark '  size='lg' className='mt-2 ml-2 '>
-                             <img
-							    src={facebookIcon}
-							    alt='facebookIcon'
-							    width='25'
-							    height='25'
-							    className='mr-2'
-						/>
-                               Facebook
-				        	</Button>
-				            </Link>
+                      
 			            </p>
 
                         <p >

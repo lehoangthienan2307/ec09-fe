@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import axios from 'axios';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-axios.defaults.baseURL = 'https://ec09-huimitu-be.herokuapp.com/'
+axios.defaults.baseURL = 'http://localhost:5000'
 
 
 
