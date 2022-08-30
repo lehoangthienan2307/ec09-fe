@@ -44,7 +44,7 @@ function Login() {
             localStorage.setItem('firstLogin', true)
             const data = res.data.access_token;
             localStorage.setItem('token',  data)
-            window.location.href = "/homepage";
+            window.location.href = "/";
 
         } catch (err) {
             err.response.data.msg && 
@@ -61,8 +61,8 @@ function Login() {
         document.getElementById("signInDiv").hidden=true;
 
         const data = res.data.access_token;
-            localStorage.setItem('token',  data)
-        window.location.href = "/homepage";
+        localStorage.setItem('token',  data)
+        window.location.href = "/";
         }
         catch(err) {
             err.response.data.msg && 
@@ -135,12 +135,12 @@ function Login() {
                         </Form>
                         <p className='mt-3 mb-2  text-center'>
 			            	Or sign in with
-
+                           
                         </p>
                        <p>
 			              
-                      
-                         <div id="signInDiv"></div>
+                       <div id="signInDiv" ></div>
+                       
 
                       
 			            </p>

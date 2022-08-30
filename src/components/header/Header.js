@@ -30,7 +30,13 @@ const Header = () => {
     return (
 		<Navbar expand='lg' bg='primary' variant='dark' className='shadow' >
 			<Navbar.Brand className='font-weight-bolder text-white'>
-				  Huimitu 
+			<Nav.Link
+						className='text-white'
+						to='/'
+						as={Link}
+					>
+						Huimitu
+					</Nav.Link>
 			</Navbar.Brand>
 
 			<Navbar.Toggle aria-controls='basic-navbar-nav' />

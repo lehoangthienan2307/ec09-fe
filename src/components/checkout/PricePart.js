@@ -15,6 +15,7 @@ const TotalSection = (props) => {
   const totalPrice = props.totalPrice || 0;
   const shippingPrice = props.shippingPrice || 0;
   const totalOrder = props.totalOrder || 0;
+  const distance= props.distance || 0;
   const id=2
   const id_2=3
   const handleCheckout = props.handleCheckout;
@@ -40,7 +41,11 @@ const TotalSection = (props) => {
           <li className="list-group-item">
             <li className="text-muted mb-2 d-flex justify-content-between">
               <span>Tổng tiền sản phẩm: </span>
-              <span>{format.format_number(totalPrice)}</span>
+              <span>{format.format_number(totalOrder)}</span>
+            </li>
+            <li className="text-muted mb-2 d-flex justify-content-between">
+              <span>Khoảng cách:</span>
+              <span>{distance} km</span>
             </li>
             <li className="text-muted mb-2 d-flex justify-content-between">
               <span>Phí ship: </span>

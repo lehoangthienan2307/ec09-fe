@@ -49,7 +49,7 @@ const AccountBar = () => {
         setOrder(true)
         setOrderDeli(false)
         setOrderSuccess(false)
-      }}>Đơn hàng đã xác nhận</ListGroup.Item>
+      }}>Đơn hàng chờ xác nhận</ListGroup.Item>
    <ListGroup.Item as="li" className={ orderDeli && 'active' }
       onClick={() => {
         navigate("/account/order/delivery");

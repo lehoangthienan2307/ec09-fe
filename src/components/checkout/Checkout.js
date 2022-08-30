@@ -23,6 +23,7 @@ const Checkout = () => {
     const [totalOrder, setTotalOrder] = useState(0);
     const [shippingPrice, setShippingPrice] = useState(0);
     const [totalPrice, setTotalPrice] = useState(0);
+    const [distance, setDistance] = useState(0);
     const navigator = useNavigate();
 
       useEffect(() => {
@@ -117,13 +118,14 @@ const Checkout = () => {
           const res = await axios.post('/checkout/price', requestBody, 
           {headers: {Authorization: token}}
           )
-          const { totalPrice, shippingPrice, totalOrder } =
+          const { totalPrice, shippingPrice, totalOrder, distance } =
             res.data;
     
         
               setTotalPrice(totalPrice);
               setShippingPrice(shippingPrice);
               setTotalOrder(totalOrder);
+              setDistance(distance)
               if (totalPrice === 0) {
                 navigator("/cart");
               }
@@ -148,6 +150,7 @@ const Checkout = () => {
               totalPrice={totalPrice}
               shippingPrice={shippingPrice}
               totalOrder={totalOrder}
+              distance={distance}
               province={province}
               district={district}
               ward={ward}
